@@ -92,4 +92,6 @@ public class PanelObjetos extends JPanel  {
 	  rojas.setText(""+principal.darRojas());
   }
 
+
+
 }

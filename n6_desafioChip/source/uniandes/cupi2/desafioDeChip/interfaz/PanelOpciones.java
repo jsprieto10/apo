@@ -112,6 +112,15 @@ public class PanelOpciones extends JPanel implements ActionListener {
 //		else if ( comando.equals( VISITADA )) {
 //			principal.darCasillaMasVisitada();
 		}
+
+	public void finJuego() {
+		
+		filaVisitada.setEnabled(false);
+		columnaVisitada.setEnabled(false);
+		vecinos.setEnabled(false);
+		opcion1.setEnabled(false);
+		opcion2.setEnabled(false);
+	}
 	
 
 	}

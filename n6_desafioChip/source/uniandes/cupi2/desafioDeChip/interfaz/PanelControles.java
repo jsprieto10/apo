@@ -147,4 +147,12 @@ public class PanelControles extends JPanel implements ActionListener {
 		
 
 	}
+	public void finJuego() {
+		// TODO Auto-generated method stub
+		abajo.setEnabled(false);
+		arriba.setEnabled(false);
+		derecha.setEnabled(false);
+		izquierda.setEnabled(false);	
+		
+	}
 	}

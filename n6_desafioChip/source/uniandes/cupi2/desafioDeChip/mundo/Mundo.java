@@ -140,22 +140,30 @@ public class Mundo
 
 		if (tablero[i][j].darEstado()==(Casilla.VACIA))
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
-
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
 			columnaJugador = j;
+
 		}
 		else if (tablero[i][j].darEstado()==Casilla.CHIP)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
@@ -164,32 +172,49 @@ public class Mundo
 		}
 		else if (tablero[i][j].darEstado()==Casilla.SALIDA && chips == 0)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
 			columnaJugador = j;
+		}
+		else if (tablero[i][j].darEstado()==Casilla.SALIDA && chips != 0)
+		{
+			throw new Exception ("No ha recogido todos los chips");
 		}
 		else if (tablero[i][j].darEstado()==Casilla.PREMIO)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
 			columnaJugador = j;
+			throw new Exception ("¡Felicitaciones! Gano el juego");
 		}
 		else if (tablero[i][j].darEstado()==Casilla.LLAVE_AMARILLA)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
@@ -198,22 +223,35 @@ public class Mundo
 		}
 		else if (tablero[i][j].darEstado()==Casilla.PUERTA_AMARILLA && llaveAmarilla >= 1)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
 			columnaJugador = j;
 			llaveAmarilla--;
 		}
+		else if (tablero[i][j].darEstado()==Casilla.PUERTA_AMARILLA && llaveAmarilla == 0)
+		{
+			throw new Exception ("No tiene la llave para abrir la puerta");
+		}
+
 		else if (tablero[i][j].darEstado()==Casilla.LLAVE_ROJA)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
@@ -222,22 +260,34 @@ public class Mundo
 		}
 		else if (tablero[i][j].darEstado()==Casilla.PUERTA_ROJA && llaveRoja >= 1)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
 			columnaJugador = j;
 			llaveRoja--;
 		}
+		else if (tablero[i][j].darEstado()==Casilla.PUERTA_ROJA && llaveRoja == 0)
+		{
+			throw new Exception ("No tiene la llave para abrir la puerta");
+		}
 		else if (tablero[i][j].darEstado()==Casilla.LLAVE_AZUL)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
@@ -246,19 +296,28 @@ public class Mundo
 		}
 		else if (tablero[i][j].darEstado()==Casilla.PUERTA_AZUL && llaveAzul >= 1)
 		{
-			if (tablero[filaJugador][columnaJugador].darVisitas() == cantidadVisitas)
+			if(tablero[filaJugador][columnaJugador].darVisitas()>=cantidadVisitas)
+			{
 				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.OBSTACULO);
-			else 
-				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
+			else
+			{
+			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
 			filaJugador = i;
 			columnaJugador = j;
 			llaveAzul--;
 		}
-		//AGREGAR CHIPS, LLAVES, PUERTAS, ETC
+		else if (tablero[i][j].darEstado()==Casilla.PUERTA_AZUL && llaveAzul == 0)
+		{
+			throw new Exception ("No tiene la llave para abrir la puerta");
+		}
+		
 	}
 
+	
 
 	public String Req1( )
 	{

@@ -21,7 +21,6 @@ public class InterfazJuego extends JFrame {
   public InterfazJuego(){
     setSize(new Dimension(913, 694));
     setLayout (new BorderLayout());
-    setResizable(true);
 
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
@@ -119,13 +118,31 @@ public class InterfazJuego extends JFrame {
     return rpta;
   }
 
-  public void mover(int i, int j) throws Exception{
+  public void mover(int i, int j) {
 
-
+try
+{
     mundo.mover(i,j);
     panelTablero.actualizarMapa();
     panelInformacion.actualizar();
     //Actualizar numeros de visitas
+}
+catch(Exception e)
+{
+	if(e.getMessage().equals("No tiene la llave para abrir la puerta"))
+	{
+		JOptionPane.showMessageDialog( this, e.getMessage(), "Mover", JOptionPane.ERROR_MESSAGE);
+	}
+	else if(e.getMessage().equals("No ha recogido todos los chips"))
+	{
+		JOptionPane.showMessageDialog( this, e.getMessage(), "Mover", JOptionPane.ERROR_MESSAGE);
+	}
+	else if(e.getMessage().equals("¡Felicitaciones! Gano el juego"))
+	{
+		finJuego(e.getMessage());
+	}
+}
+
 
 
   }
@@ -209,13 +226,15 @@ public class InterfazJuego extends JFrame {
   }
 
 
+  public void finJuego(String mensaje) {
+		JOptionPane.showMessageDialog( this, mensaje, "Juego Terminado", JOptionPane.INFORMATION_MESSAGE);
+		panelInformacion.finJuego();
+		panelOpciones.finJuego();
+		panelTablero.finJuego();
 
+	}
+  
 
-  //  public void ganador(String mensaje) {
-  //    JOptionPane.showMessageDialog( this, mensaje, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-  //    panelOpciones.fin();
-  //    panelmundo.fin();
-  //
-  //  }
+ 
 
 }

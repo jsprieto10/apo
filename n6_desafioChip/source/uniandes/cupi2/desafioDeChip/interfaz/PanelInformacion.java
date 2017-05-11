@@ -36,5 +36,11 @@ public class PanelInformacion  extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 	}
+	public void finJuego() {
+		// TODO Auto-generated method stub
+		controles.finJuego();
+		
+		
+	}
 
 }
