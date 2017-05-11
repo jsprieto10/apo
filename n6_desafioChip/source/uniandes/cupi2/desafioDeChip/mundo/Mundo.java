@@ -80,6 +80,7 @@ public class Mundo
 			}
 		}
 		tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.JUGADOR);
+		tablero[filaJugador][columnaJugador].agregarVisitas();
 	} 
 
 
@@ -146,7 +147,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -162,7 +163,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -178,7 +179,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -197,7 +198,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -213,7 +214,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -229,7 +230,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -250,7 +251,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -266,7 +267,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -286,7 +287,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -302,7 +303,7 @@ public class Mundo
 			}
 			else
 			{
-			tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
+				tablero[filaJugador][columnaJugador].cambiarEstado(Casilla.VACIA);
 			}
 			tablero[i][j].cambiarEstado(Casilla.JUGADOR);
 			tablero[i][j].agregarVisitas();
@@ -315,7 +316,7 @@ public class Mundo
 			throw new Exception ("No tiene la llave para abrir la puerta");
 		}
 	}
-	
+
 	public String ColumnaMasVisitada()
 	{
 		int columna = 0;
@@ -338,7 +339,7 @@ public class Mundo
 		}
 		return "la columna más visita es: "+columna;
 	}
-	
+
 	public String FilaMasVisitada()
 	{
 		int fila = 0;
@@ -362,8 +363,60 @@ public class Mundo
 		return "la fila más visitada es: "+fila;
 	}
 
-	
+	public String darVecinos()
+	{
 
+		String arribaIzquierda= "";
+		String arribaDerecha= "";
+		String abajoIzquierda= "";
+		String abajoDerecha= "";
+		String arriba= "";
+		String izquierda="";
+		String derecha= "";
+		String abajo= "";
+		
+		if(estaEnElTablero(filaJugador-1, columnaJugador-1))
+			arribaIzquierda+= tablero[filaJugador-1][columnaJugador-1].darVisitas();
+		
+		if(estaEnElTablero(filaJugador-1, columnaJugador+1)) 
+			arribaDerecha+=tablero[filaJugador-1][columnaJugador+1].darVisitas();
+		
+		if(estaEnElTablero(filaJugador+1, columnaJugador-1))  
+			abajoIzquierda+= tablero[filaJugador+1][columnaJugador-1].darVisitas();
+		
+		if(estaEnElTablero(filaJugador+1, columnaJugador+1))   
+			abajoDerecha+= tablero[filaJugador+1][columnaJugador+1].darVisitas();
+		
+		if(estaEnElTablero(filaJugador-1, columnaJugador))    
+			arriba+= tablero[filaJugador-1][columnaJugador].darVisitas();
+		
+		if(estaEnElTablero(filaJugador, columnaJugador-1))    
+			izquierda+= tablero[filaJugador][columnaJugador-1].darVisitas();
+		
+		if(estaEnElTablero(filaJugador, columnaJugador+1))    
+			derecha+= tablero[filaJugador][columnaJugador+1].darVisitas();
+		
+		if(estaEnElTablero(filaJugador+1, columnaJugador))    
+			abajo+= tablero[filaJugador+1][columnaJugador].darVisitas();
+
+		return ("" + arribaIzquierda + " " + arriba+ " " +arribaDerecha + "\n"
+				+ izquierda+ " " + "x" + " " +derecha+ "\n" + 
+				abajoIzquierda+ " " + abajo+ " " +abajoDerecha);
+	}
+
+
+
+	public boolean estaEnElTablero(int i, int j)
+	{
+		if(i<0||j<0||i>(tablero.length-1)||j>(tablero[0].length-1))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
 	public String Req1( )
 	{
 		return "Respuesta 1";

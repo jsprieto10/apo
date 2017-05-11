@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
@@ -115,6 +116,9 @@ public class PanelOpciones extends JPanel implements ActionListener {
 		else if ( comando.equals( FILA_VISITADA)) {
 			principal.filaMasVisita();
 		}
+		else if ( comando.equals( VECINOS)) {
+			principal.darVecinos();
+			}
 	}
 
 	public void finJuego() {

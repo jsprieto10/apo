@@ -191,6 +191,12 @@ catch(Exception e)
   {
     return mundo.darColumnaJugador();
   }
+  public void darVecinos()
+  {
+	  String mensaje= mundo.darVecinos();
+		JOptionPane.showMessageDialog( this, mensaje, "Cantidad visitas", JOptionPane.INFORMATION_MESSAGE);
+	
+  }
 
   public void reiniciar() {
     try{
