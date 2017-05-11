@@ -314,7 +314,48 @@ public class Mundo
 		{
 			throw new Exception ("No tiene la llave para abrir la puerta");
 		}
-		
+	}
+	
+	public String ColumnaMasVisitada()
+	{
+		int columna = 0;
+		int sumaParcial = 0;
+		int sumaMayor = 0;
+		for (int j = 0; j < filas; j++)
+		{
+			sumaParcial = 0;
+			for (int i = 0; i < filas; i++)
+			{
+				sumaParcial += tablero[i][j].darVisitas();
+			}
+			if (sumaParcial > sumaMayor)
+			{
+				sumaMayor = sumaParcial;
+				columna = j;
+			}
+		}
+		return "la columna más visita es: "+columna;
+	}
+	
+	public String FilaMasVisitada()
+	{
+		int fila = 0;
+		int sumaParcial = 0;
+		int sumaMayor = 0;
+		for (int i = 0; i < filas; i++)
+		{
+			sumaParcial = 0;
+			for (int j = 0; j < filas; j++)
+			{
+				sumaParcial += tablero[i][j].darVisitas();
+			}
+			if (sumaParcial > sumaMayor)
+			{
+				sumaMayor = sumaParcial;
+				fila = i;
+			}
+		}
+		return "la fila más visitada es: "+fila;
 	}
 
 	

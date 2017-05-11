@@ -109,9 +109,13 @@ public class PanelOpciones extends JPanel implements ActionListener {
 		else if ( comando.equals( OPCION2 )) {
 			principal.Req2();
 		}
-//		else if ( comando.equals( VISITADA )) {
-//			principal.darCasillaMasVisitada();
+		else if ( comando.equals( COLUMNA_VISITADA )) {
+			principal.columnaMasVisita();
 		}
+		else if ( comando.equals( FILA_VISITADA)) {
+			principal.filaMasVisita();
+		}
+	}
 
 	public void finJuego() {
 		

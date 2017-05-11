@@ -205,6 +205,21 @@ catch(Exception e)
       e.printStackTrace();
     }
   }
+  
+  public void columnaMasVisita()
+  {
+	   String respuesta = mundo.ColumnaMasVisitada();
+	   JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );  
+  }
+  
+  public void filaMasVisita()
+  {
+	   String respuesta = mundo.FilaMasVisitada();
+	   JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );  
+  }
+  
+  
+  
   public void Req1( )
   {
     String resultado = mundo.Req1( );
