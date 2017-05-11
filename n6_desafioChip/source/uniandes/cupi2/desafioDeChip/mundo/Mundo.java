@@ -333,6 +333,8 @@ public class Mundo
 				sumaMayor = sumaParcial;
 				columna = j;
 			}
+			if (sumaMayor == 0)
+				columna = columnaJugador;
 		}
 		return "la columna más visita es: "+columna;
 	}
@@ -354,6 +356,8 @@ public class Mundo
 				sumaMayor = sumaParcial;
 				fila = i;
 			}
+			if (sumaMayor == 0)
+				fila = filaJugador;
 		}
 		return "la fila más visitada es: "+fila;
 	}
